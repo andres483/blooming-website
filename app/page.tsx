@@ -107,7 +107,7 @@ export default function Home() {
             <div className="flex items-center gap-3">
               <div className="w-4 h-px bg-bosque" />
               <p className="font-sans font-[300] text-sm text-bosque">
-                We'll be in touch. Thank you.
+                We&apos;ll be in touch. Thank you.
               </p>
             </div>
           )}
