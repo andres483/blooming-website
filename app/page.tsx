@@ -21,6 +21,24 @@ function BloomSymbol({ className = "" }: { className?: string }) {
 export default function Home() {
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  async function handleSubscribe() {
+    if (!email) return;
+    setLoading(true);
+    try {
+      await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      setSent(true);
+    } catch {
+      setSent(true);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <main className="min-h-screen bg-cream flex flex-col">
@@ -95,15 +113,16 @@ export default function Home() {
                     placeholder="your@email.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    onKeyDown={(e) => { if (e.key === "Enter" && email) setSent(true); }}
+                    onKeyDown={(e) => { if (e.key === "Enter") handleSubscribe(); }}
                     className="font-sans font-[300] text-sm bg-transparent border-b border-negro/20 focus:border-negro outline-none py-2 w-60 placeholder:text-negro/25 transition-colors duration-200"
                   />
                 </div>
                 <button
-                  onClick={() => { if (email) setSent(true); }}
-                  className="font-sans font-[400] text-xs tracking-[0.2em] uppercase bg-negro text-cream px-7 py-3 hover:bg-bosque transition-colors duration-300 mb-0.5"
+                  onClick={handleSubscribe}
+                  disabled={loading}
+                  className="font-sans font-[400] text-xs tracking-[0.2em] uppercase bg-negro text-cream px-7 py-3 hover:bg-bosque transition-colors duration-300 mb-0.5 disabled:opacity-50"
                 >
-                  Notify me
+                  {loading ? "..." : "Notify me"}
                 </button>
               </div>
             ) : (
