@@ -38,81 +38,91 @@ export default function Home() {
         </span>
       </nav>
 
-      {/* Main content */}
-      <div className="flex-1 flex flex-col justify-center px-8 md:px-20 pb-16">
-        <div className="max-w-3xl">
+      {/* Main content — two columns on desktop */}
+      <div className="flex-1 flex flex-col md:flex-row items-center px-8 md:px-20 pb-16">
 
-          {/* Status indicator */}
-          <div className="flex items-center gap-2 mb-12">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-bosque opacity-40" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-bosque" />
-            </span>
-            <span className="font-sans font-[300] text-xs tracking-[0.25em] uppercase text-bosque">
-              Something is growing
-            </span>
-          </div>
+        {/* Left: text content */}
+        <div className="flex-1 flex flex-col justify-center py-12 md:py-0">
+          <div className="max-w-xl">
 
-          {/* Trilingual taglines */}
-          <div className="flex flex-col gap-1 mb-10">
-            <p className="font-display italic font-[300] text-sm text-negro/60">
-              Growth that matters.
-            </p>
-            <p className="font-display italic font-[300] text-sm text-tierra">
-              Crecimiento que importa.
-            </p>
-            <p className="font-display italic font-[300] text-sm text-bosque">
-              Une croissance qui compte.
-            </p>
-          </div>
-
-          {/* Headline */}
-          <h1 className="font-display font-[300] text-display-xl text-negro mb-10 leading-[0.95]">
-            We help<br />
-            organizations{" "}
-            <em className="text-bosque">grow.</em>
-          </h1>
-
-          {/* Positioning */}
-          <p className="font-sans font-[300] text-base md:text-lg text-negro/55 max-w-lg leading-relaxed mb-14">
-            A collective of four. We bridge San Francisco, Latin America, and
-            the French tech ecosystem — through events, community, and
-            go-to-market strategy.
-          </p>
-
-          {/* Email capture */}
-          {!sent ? (
-            <div className="flex flex-col sm:flex-row items-start sm:items-end gap-4">
-              <div className="flex flex-col gap-1">
-                <label className="font-sans font-[300] text-xs tracking-[0.15em] uppercase text-negro/40">
-                  Stay in touch
-                </label>
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  onKeyDown={(e) => { if (e.key === "Enter" && email) setSent(true); }}
-                  className="font-sans font-[300] text-sm bg-transparent border-b border-negro/20 focus:border-negro outline-none py-2 w-60 placeholder:text-negro/25 transition-colors duration-200"
-                />
-              </div>
-              <button
-                onClick={() => { if (email) setSent(true); }}
-                className="font-sans font-[400] text-xs tracking-[0.2em] uppercase bg-negro text-cream px-7 py-3 hover:bg-bosque transition-colors duration-300 mb-0.5"
-              >
-                Notify me
-              </button>
+            {/* Status indicator */}
+            <div className="flex items-center gap-2 mb-12">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-bosque opacity-40" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-bosque" />
+              </span>
+              <span className="font-sans font-[300] text-xs tracking-[0.25em] uppercase text-bosque">
+                Something is growing
+              </span>
             </div>
-          ) : (
-            <div className="flex items-center gap-3">
-              <div className="w-4 h-px bg-bosque" />
-              <p className="font-sans font-[300] text-sm text-bosque">
-                We&apos;ll be in touch. Thank you.
+
+            {/* Trilingual taglines */}
+            <div className="flex flex-col gap-1 mb-10">
+              <p className="font-display italic font-[300] text-sm text-negro/60">
+                Growth that matters.
+              </p>
+              <p className="font-display italic font-[300] text-sm text-tierra">
+                Crecimiento que importa.
+              </p>
+              <p className="font-display italic font-[300] text-sm text-bosque">
+                Une croissance qui compte.
               </p>
             </div>
-          )}
 
+            {/* Headline */}
+            <h1 className="font-display font-[300] text-display-xl text-negro mb-10 leading-[0.95]">
+              We help<br />
+              organizations{" "}
+              <em className="text-bosque">grow.</em>
+            </h1>
+
+            {/* Positioning */}
+            <p className="font-sans font-[300] text-base md:text-lg text-negro/55 max-w-lg leading-relaxed mb-14">
+              A collective of four. We bridge San Francisco, Latin America, and
+              the French tech ecosystem — through events, community, and
+              go-to-market strategy.
+            </p>
+
+            {/* Email capture */}
+            {!sent ? (
+              <div className="flex flex-col sm:flex-row items-start sm:items-end gap-4">
+                <div className="flex flex-col gap-1">
+                  <label className="font-sans font-[300] text-xs tracking-[0.15em] uppercase text-negro/40">
+                    Stay in touch
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="your@email.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    onKeyDown={(e) => { if (e.key === "Enter" && email) setSent(true); }}
+                    className="font-sans font-[300] text-sm bg-transparent border-b border-negro/20 focus:border-negro outline-none py-2 w-60 placeholder:text-negro/25 transition-colors duration-200"
+                  />
+                </div>
+                <button
+                  onClick={() => { if (email) setSent(true); }}
+                  className="font-sans font-[400] text-xs tracking-[0.2em] uppercase bg-negro text-cream px-7 py-3 hover:bg-bosque transition-colors duration-300 mb-0.5"
+                >
+                  Notify me
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center gap-3">
+                <div className="w-4 h-px bg-bosque" />
+                <p className="font-sans font-[300] text-sm text-bosque">
+                  We&apos;ll be in touch. Thank you.
+                </p>
+              </div>
+            )}
+
+          </div>
         </div>
+
+        {/* Right: large bloom symbol */}
+        <div className="hidden md:flex flex-1 items-center justify-center">
+          <BloomSymbol className="w-[28rem] h-[28rem] text-negro/[0.04]" />
+        </div>
+
       </div>
 
       {/* Footer */}
