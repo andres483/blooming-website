@@ -122,7 +122,7 @@ export default function Home() {
                   disabled={loading}
                   className="font-sans font-[400] text-xs tracking-[0.2em] uppercase bg-negro text-cream px-7 py-3 hover:bg-bosque transition-colors duration-300 mb-0.5 disabled:opacity-50"
                 >
-                  {loading ? "..." : "Notify me"}
+                  {loading ? "..." : "Let's connect"}
                 </button>
               </div>
             ) : (
