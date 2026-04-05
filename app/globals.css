@@ -3,24 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --background: #F7F5F1;
-  --foreground: #1A1A1A;
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-space: 'Space Grotesk', Helvetica, sans-serif;
 }
+
+html { scroll-behavior: smooth; }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  font-family: var(--font-space);
+  background-color: #F7F5F1;
+  color: #1A1A1A;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+::selection {
+  background: #1A1A1A;
+  color: #F7F5F1;
 }
