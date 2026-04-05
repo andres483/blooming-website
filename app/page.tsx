@@ -76,8 +76,8 @@ export default function Home() {
               <em className="text-bosque">grow.</em>
             </h1>
 
-            {/* Positioning */}
-            <p className="font-sans font-[300] text-base md:text-lg text-negro/55 max-w-lg leading-relaxed mb-14">
+            {/* Positioning — visible only on mobile */}
+            <p className="font-sans font-[300] text-base text-negro/55 max-w-lg leading-relaxed mb-14 md:hidden">
               A collective of four. We bridge San Francisco, Latin America, and
               the French tech ecosystem — through events, community, and
               go-to-market strategy.
@@ -118,9 +118,19 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right: large bloom symbol */}
-        <div className="hidden md:flex flex-1 items-center justify-center">
-          <BloomSymbol className="w-[28rem] h-[28rem] text-negro/[0.04]" />
+        {/* Right: isotipo + positioning + cities */}
+        <div className="hidden md:flex flex-1 flex-col items-center justify-center gap-16">
+          <BloomSymbol className="w-[22rem] h-[22rem] text-negro/[0.06]" />
+          <div className="flex flex-col items-center gap-6 max-w-sm text-center">
+            <p className="font-sans font-[300] text-base text-negro/50 leading-relaxed">
+              A collective of four. We bridge San Francisco, Latin America, and
+              the French tech ecosystem — through events, community, and
+              go-to-market strategy.
+            </p>
+            <p className="font-sans font-[300] text-xs tracking-[0.25em] uppercase text-negro/25">
+              San Francisco · Santiago · Paris
+            </p>
+          </div>
         </div>
 
       </div>
