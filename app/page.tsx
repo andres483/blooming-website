@@ -44,7 +44,7 @@ export default function Home() {
     <main className="min-h-screen bg-cream flex flex-col">
 
       {/* Nav */}
-      <nav className="flex items-center justify-between px-8 md:px-20 py-8">
+      <nav className="flex items-center justify-between px-6 md:px-20 py-5 md:py-8">
         <div className="flex items-center gap-3">
           <BloomSymbol className="w-5 h-5 text-negro" />
           <span className="font-sans font-[300] text-xs tracking-[0.3em] uppercase text-negro">
@@ -57,14 +57,14 @@ export default function Home() {
       </nav>
 
       {/* Main content — two columns on desktop */}
-      <div className="flex-1 flex flex-col md:flex-row items-center px-8 md:px-20 pb-16">
+      <div className="flex-1 flex flex-col md:flex-row items-center px-6 md:px-20 pb-8 md:pb-16">
 
         {/* Left: text content */}
-        <div className="flex-1 flex flex-col justify-center py-12 md:py-0">
+        <div className="flex-1 flex flex-col justify-center py-4 md:py-0">
           <div className="max-w-xl">
 
             {/* Status indicator */}
-            <div className="flex items-center gap-2 mb-12">
+            <div className="flex items-center gap-2 mb-6 md:mb-12">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-bosque opacity-40" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-bosque" />
@@ -75,7 +75,7 @@ export default function Home() {
             </div>
 
             {/* Trilingual taglines */}
-            <div className="flex flex-col gap-1 mb-10">
+            <div className="flex flex-col gap-1 mb-5 md:mb-10">
               <p className="font-display italic font-[300] text-sm text-negro/60">
                 Growth that matters.
               </p>
@@ -88,14 +88,14 @@ export default function Home() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-display font-[300] text-display-xl text-negro mb-10 leading-[0.95]">
+            <h1 className="font-display font-[300] text-display-xl text-negro mb-5 md:mb-10 leading-[0.95]">
               We help<br />
               organizations{" "}
               <em className="text-bosque">grow.</em>
             </h1>
 
             {/* Positioning — visible only on mobile */}
-            <p className="font-sans font-[300] text-base text-negro/55 max-w-lg leading-relaxed mb-14 md:hidden">
+            <p className="font-sans font-[300] text-sm text-negro/55 max-w-lg leading-relaxed mb-8 md:hidden">
               A collective of four. We bridge San Francisco, Latin America, and
               the French tech ecosystem — through events, community, and
               go-to-market strategy.
@@ -154,8 +154,13 @@ export default function Home() {
 
       </div>
 
+      {/* Cities — mobile only */}
+      <p className="font-sans font-[300] text-xs tracking-[0.2em] uppercase text-negro/25 text-center pb-6 md:hidden">
+        San Francisco · Santiago · Paris
+      </p>
+
       {/* Footer */}
-      <footer className="px-8 md:px-20 py-7 flex items-center justify-between border-t border-negro/5">
+      <footer className="px-6 md:px-20 py-5 md:py-7 flex items-center justify-between border-t border-negro/5">
         <a
           href="mailto:hello@weareblooming.co"
           className="font-sans font-[300] text-xs text-negro/35 hover:text-negro transition-colors duration-200"
