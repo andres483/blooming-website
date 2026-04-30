@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blooming × Bond.ai — Pilot Partnership</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --negro: #1A1A1A;
+      --blanco: #FFFFFF;
+      --bosque: #5C6B5A;
+      --tierra: #C4B8A8;
+      --screen-bg: #E8E6E2;
+      --border: rgba(26, 26, 26, 0.12);
+    }
+
+    @page {
+      size: 11in 8.5in;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--negro);
+      background: var(--screen-bg);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .slide {
+      width: 11in;
+      height: 8.5in;
+      padding: 1in 1.2in;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      page-break-after: always;
+      background: var(--blanco);
+      overflow: hidden;
+    }
+
+    .slide:last-child {
+      page-break-after: auto;
+    }
+
+    .display {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+
+    .uppercase {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.7rem;
+      font-weight: 400;
+    }
+
+    .line {
+      width: 40px;
+      height: 1px;
+      background: var(--negro);
+      opacity: 0.15;
+    }
+
+    .slide-footer {
+      position: absolute;
+      bottom: 0.6in;
+      left: 1.2in;
+      right: 1.2in;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .slide-footer span {
+      font-size: 0.6rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--negro);
+      opacity: 0.45;
+    }
+
+    .section-label {
+      color: var(--bosque);
+      opacity: 0.8;
+    }
+
+    .section-headline {
+      font-size: 2.4rem;
+      line-height: 1.15;
+      max-width: 8.5in;
+      color: var(--negro);
+    }
+
+    .section-headline em {
+      font-style: italic;
+      color: var(--bosque);
+    }
+
+    .section-body {
+      font-size: 0.88rem;
+      line-height: 1.75;
+      max-width: 7in;
+      color: var(--negro);
+      opacity: 0.7;
+    }
+
+    /* ========================
+       SLIDE 1 — Cover
+       ======================== */
+    .slide-cover {
+      justify-content: space-between;
+      padding-top: 1.2in;
+      padding-bottom: 1in;
+    }
+
+    .cover-top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cover-wordmark {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--negro);
+    }
+
+    .cover-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .cover-tagline {
+      font-size: 3.6rem;
+      line-height: 1.08;
+      color: var(--negro);
+    }
+
+    .cover-tagline em {
+      font-style: italic;
+      color: var(--bosque);
+    }
+
+    .cover-sub {
+      font-size: 0.78rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--negro);
+      margin-top: 8px;
+      opacity: 0.65;
+    }
+
+    .cover-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      align-self: flex-start;
+      margin-top: 16px;
+    }
+
+    .cover-badge span {
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--negro);
+      opacity: 0.55;
+    }
+
+    .cover-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .cover-from {
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: var(--negro);
+      opacity: 0.6;
+      letter-spacing: 0.05em;
+    }
+
+    .cover-logos {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .cover-logos .x-mark {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.1rem;
+      color: var(--negro);
+      opacity: 0.25;
+    }
+
+    .cover-logos .partner-name {
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--negro);
+      opacity: 0.7;
+    }
+
+    /* ========================
+       SLIDE 2 — The Opportunity
+       ======================== */
+    .slide-opportunity {
+      gap: 40px;
+    }
+
+    .opportunity-quote {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      font-style: italic;
+      color: var(--negro);
+      opacity: 0.7;
+      max-width: 7in;
+      border-left: 2px solid var(--tierra);
+      padding-left: 24px;
+    }
+
+    .opportunity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 4px;
+    }
+
+    .opportunity-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .opportunity-col h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--bosque);
+    }
+
+    .opportunity-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .opportunity-col li {
+      font-size: 0.82rem;
+      font-weight: 300;
+      line-height: 1.55;
+      color: var(--negro);
+      opacity: 0.7;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .opportunity-col li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      opacity: 0.4;
+    }
+
+    .opportunity-gap {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--negro);
+      opacity: 0.55;
+      max-width: 7.5in;
+      line-height: 1.6;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ========================
+       SLIDE 3 — The Pilot
+       ======================== */
+    .slide-pilot {
+      gap: 36px;
+    }
+
+    .pilot-specs {
+      display: flex;
+      gap: 48px;
+    }
+
+    .pilot-spec {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .pilot-spec .label {
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--bosque);
+      opacity: 0.75;
+    }
+
+    .pilot-spec .value {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 400;
+      font-size: 1.25rem;
+      color: var(--negro);
+      line-height: 1.3;
+    }
+
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 4px;
+    }
+
+    .split-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .split-col h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--bosque);
+    }
+
+    .split-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .split-col li {
+      font-size: 0.8rem;
+      font-weight: 300;
+      line-height: 1.55;
+      color: var(--negro);
+      opacity: 0.7;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .split-col li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      opacity: 0.4;
+    }
+
+    .pilot-metrics {
+      display: flex;
+      gap: 48px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .metric-item .num {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--negro);
+      line-height: 1;
+    }
+
+    .metric-item .lbl {
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--bosque);
+      opacity: 0.75;
+    }
+
+    /* ========================
+       SLIDE 4 — Hackathon Themes
+       ======================== */
+    .slide-themes {
+      gap: 36px;
+    }
+
+    .themes-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 8in;
+    }
+
+    .theme-row {
+      display: grid;
+      grid-template-columns: 2.8in 1fr;
+      gap: 40px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .theme-row:first-child {
+      padding-top: 0;
+    }
+
+    .theme-row:last-child {
+      border-bottom: none;
+    }
+
+    .theme-left h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 400;
+      font-size: 1.3rem;
+      line-height: 1.25;
+      color: var(--negro);
+    }
+
+    .theme-left p {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--negro);
+      opacity: 0.5;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    .theme-right {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .theme-right .sponsors-label {
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--bosque);
+      opacity: 0.75;
+    }
+
+    .theme-right .sponsors-list {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--negro);
+      opacity: 0.65;
+      line-height: 1.5;
+    }
+
+    .theme-right .sponsors-count {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.1rem;
+      color: var(--bosque);
+      font-style: italic;
+    }
+
+    /* ========================
+       SLIDE 5 — Sponsor Package
+       ======================== */
+    .slide-package {
+      gap: 32px;
+    }
+
+    .package-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      margin-top: 4px;
+    }
+
+    .package-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .package-col h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--bosque);
+    }
+
+    .package-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .package-col li {
+      font-size: 0.78rem;
+      font-weight: 300;
+      line-height: 1.55;
+      color: var(--negro);
+      opacity: 0.68;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .package-col li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      opacity: 0.4;
+    }
+
+    .package-note {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 0.95rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--negro);
+      opacity: 0.55;
+      max-width: 7.5in;
+      line-height: 1.6;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ========================
+       SLIDE 6 — Scope of Work
+       ======================== */
+    .slide-scope {
+      gap: 28px;
+      justify-content: flex-start;
+      padding-top: 0.75in;
+    }
+
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .scope-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .scope-col h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 400;
+      font-size: 1.15rem;
+      color: var(--negro);
+    }
+
+    .scope-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .scope-col li {
+      font-size: 0.75rem;
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--negro);
+      opacity: 0.65;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .scope-col li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      opacity: 0.35;
+    }
+
+    /* ========================
+       SLIDE 7 — Investment & Revenue
+       ======================== */
+    .slide-invest {
+      gap: 32px;
+      justify-content: flex-start;
+      padding-top: 0.75in;
+    }
+
+    .invest-scenarios {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+    }
+
+    .invest-scenario {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .invest-scenario h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--bosque);
+    }
+
+    .invest-table {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .invest-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .invest-row:last-child {
+      border-bottom: none;
+      padding-top: 12px;
+    }
+
+    .invest-row .item {
+      font-size: 0.76rem;
+      font-weight: 300;
+      color: var(--negro);
+      opacity: 0.6;
+    }
+
+    .invest-row .price {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--negro);
+    }
+
+    .invest-row.total .item {
+      font-weight: 400;
+      opacity: 1;
+      font-size: 0.8rem;
+    }
+
+    .invest-row.total .price {
+      font-size: 1.3rem;
+      color: var(--bosque);
+    }
+
+    .profit-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .profit-block .profit-label {
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--bosque);
+      opacity: 0.75;
+    }
+
+    .profit-scenarios {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .profit-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .profit-row:last-child {
+      border-bottom: none;
+    }
+
+    .profit-row .scenario-name {
+      font-size: 0.76rem;
+      font-weight: 300;
+      color: var(--negro);
+      opacity: 0.6;
+    }
+
+    .profit-row .profit-num {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--negro);
+    }
+
+    .invest-note {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 0.88rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--negro);
+      opacity: 0.55;
+      line-height: 1.6;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    .blooming-fee {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 10px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .blooming-fee .fee-label {
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--bosque);
+      opacity: 0.75;
+    }
+
+    .blooming-fee .fee-amount {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--negro);
+    }
+
+    .blooming-fee .fee-note {
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--negro);
+      opacity: 0.5;
+    }
+
+    /* ========================
+       SLIDE 8 — Close
+       ======================== */
+    .slide-close {
+      align-items: center;
+      text-align: center;
+      gap: 32px;
+    }
+
+    .close-headline {
+      font-size: 3.2rem;
+      line-height: 1.1;
+      color: var(--negro);
+    }
+
+    .close-headline em {
+      font-style: italic;
+      color: var(--bosque);
+    }
+
+    .close-body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--negro);
+      opacity: 0.65;
+      max-width: 5.5in;
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    .close-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: left;
+      max-width: 5in;
+    }
+
+    .close-steps p {
+      font-size: 0.82rem;
+      line-height: 1.6;
+      font-weight: 300;
+      color: var(--negro);
+      opacity: 0.65;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .close-steps p::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--bosque);
+      opacity: 0.5;
+    }
+
+    .close-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .close-email {
+      font-size: 0.95rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      color: var(--negro);
+      opacity: 0.65;
+    }
+
+    .close-url {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--bosque);
+      opacity: 0.6;
+    }
+
+    /* ========================
+       Screen & Print
+       ======================== */
+    @media screen {
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        padding: 32px;
+        background: var(--screen-bg);
+      }
+      .slide {
+        box-shadow: 0 2px 30px rgba(0,0,0,0.08);
+        border-radius: 2px;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+        gap: 0;
+      }
+      .slide {
+        box-shadow: none;
+      }
+    }
+
+    /* ========================
+       Mobile
+       ======================== */
+    @media screen and (max-width: 900px) {
+      body { padding: 12px; gap: 12px; }
+
+      .slide {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        padding: 48px 24px 72px;
+        page-break-after: unset;
+      }
+
+      .slide-cover { padding-top: 48px; padding-bottom: 48px; gap: 28px; min-height: 100svh; }
+      .cover-tagline { font-size: 2.2rem; }
+      .cover-bottom { flex-direction: column; align-items: flex-start; gap: 16px; }
+
+      .section-headline { font-size: 1.5rem; max-width: 100%; }
+      .section-body { font-size: 0.82rem; max-width: 100%; }
+
+      .slide-opportunity { gap: 28px; }
+      .opportunity-grid { grid-template-columns: 1fr; gap: 28px; }
+      .opportunity-quote { max-width: 100%; font-size: 0.95rem; }
+
+      .slide-pilot { gap: 24px; }
+      .pilot-specs { flex-wrap: wrap; gap: 24px; }
+      .split-grid { grid-template-columns: 1fr; gap: 24px; }
+      .pilot-metrics { flex-wrap: wrap; gap: 24px; }
+
+      .slide-themes { gap: 24px; }
+      .theme-row { grid-template-columns: 1fr; gap: 12px; padding: 16px 0; }
+
+      .slide-package { gap: 24px; }
+      .package-grid { grid-template-columns: 1fr; gap: 24px; }
+
+      .slide-scope { gap: 20px; }
+      .scope-grid { grid-template-columns: 1fr; gap: 24px; }
+
+      .slide-invest { gap: 24px; }
+      .invest-scenarios { grid-template-columns: 1fr; gap: 36px; }
+
+      .slide-close { gap: 24px; }
+      .close-headline { font-size: 2rem; }
+      .close-body { font-size: 0.9rem; max-width: 100%; }
+      .close-steps { max-width: 100%; }
+
+      .slide-footer {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        margin-top: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SLIDE 1: COVER                             -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="slide slide-cover">
+    <div class="cover-top">
+      <svg width="48" height="48" viewBox="0 0 48 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="24" cy="14" rx="5" ry="12" fill="#1A1A1A" fill-opacity="0.7"/>
+        <ellipse cx="24" cy="46" rx="5" ry="12" fill="#1A1A1A" fill-opacity="0.7"/>
+        <ellipse cx="12" cy="30" rx="12" ry="5" fill="#5C6B5A" fill-opacity="0.6"/>
+        <ellipse cx="36" cy="30" rx="12" ry="5" fill="#5C6B5A" fill-opacity="0.6"/>
+        <circle cx="24" cy="30" r="4" fill="#1A1A1A"/>
+      </svg>
+      <span class="cover-wordmark">Blooming</span>
+    </div>
+
+    <div class="cover-main">
+      <h1 class="display cover-tagline">Bond.ai &times; Blooming<br><em>Pilot Partnership.</em></h1>
+      <p class="cover-sub">AI Hackathon &middot; San Francisco &middot; May 2026</p>
+      <div class="cover-badge">
+        <span>Confidential</span>
+      </div>
+    </div>
+
+    <div class="cover-bottom">
+      <span class="cover-from">Prepared by Alison Granger, Co-Founder</span>
+      <div class="cover-logos">
+        <span class="cover-wordmark" style="font-size: 0.7rem; opacity: 0.6;">Blooming</span>
+        <span class="x-mark" style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.1rem; color: var(--negro); opacity: 0.25;">&times;</span>
+        <span class="partner-name">Bond.ai</span>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>Blooming</span>
+      <span>weareblooming.co</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SLIDE 2: THE OPPORTUNITY                   -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="slide slide-opportunity">
+    <div class="line"></div>
+    <span class="uppercase section-label">The Opportunity</span>
+    <h2 class="display section-headline">Two operators.<br>One <em>gap worth closing.</em></h2>
+
+    <p class="opportunity-quote">This Tuesday, Sahar and I met for the first time — which is funny, considering how many events we've both been at on the same Luma page. We've been orbiting the same ecosystem. This is overdue.</p>
+
+    <div class="opportunity-grid">
+      <div class="opportunity-col">
+        <h3>What Bond brings</h3>
+        <ul>
+          <li>Audience trust — companies follow AI Tidbits, attend Bond events</li>
+          <li>Sponsor relationships built over years in the SF AI ecosystem</li>
+          <li>Inbound demand to run event strategy from companies who can't replicate that reach</li>
+        </ul>
+      </div>
+      <div class="opportunity-col">
+        <h3>What Blooming brings</h3>
+        <ul>
+          <li>Production engine — 150+ events executed with IBM, NVIDIA, Google, Canva</li>
+          <li>AIUG network — 70K+ attendees, dev community credibility in SF</li>
+          <li>Flawless execution under tight timelines, every time</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="opportunity-gap">Sahar has the audience and sponsor relationships. I have the production engine and dev community credibility. Neither of us can do this alone at the level these companies expect.</p>
+
+    <div class="slide-footer">
+      <span>Blooming &times; Bond.ai</span>
+      <span>Confidential</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SLIDE 3: THE PILOT                         -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="slide slide-pilot">
+    <div class="line"></div>
+    <span class="uppercase section-label">The Pilot</span>
+    <h2 class="display section-headline">One event to <em>test the format.</em></h2>
+
+    <div class="pilot-specs">
+      <div class="pilot-spec">
+        <span class="label">Format</span>
+        <span class="value">1-Day AI Hackathon</span>
+      </div>
+      <div class="pilot-spec">
+        <span class="label">Attendees</span>
+        <span class="value">80 Qualified Builders</span>
+      </div>
+      <div class="pilot-spec">
+        <span class="label">Location</span>
+        <span class="value">San Francisco</span>
+      </div>
+      <div class="pilot-spec">
+        <span class="label">Timing</span>
+        <span class="value">Mid-May 2026</span>
+      </div>
+      <div class="pilot-spec">
+        <span class="label">Sponsors</span>
+        <span class="value">3–4 Companies</span>
+      </div>
+    </div>
+
+    <div class="split-grid">
+      <div class="split-col">
+        <h3>Bond</h3>
+        <ul>
+          <li>Leads sponsor outreach and closes deals</li>
+          <li>Pays event expenses upfront</li>
+          <li>Brings Bond audience and AI Tidbits community</li>
+        </ul>
+      </div>
+      <div class="split-col">
+        <h3>Blooming</h3>
+        <ul>
+          <li>Leads full production and logistics</li>
+          <li>Brings AIUG network for participant outreach</li>
+          <li>Executes day-of — no gaps, no fire drills</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pilot-metrics">
+      <div class="metric-item">
+        <span class="num">80%+</span>
+        <span class="lbl">Attendee satisfaction</span>
+      </div>
+      <div class="metric-item">
+        <span class="num">1+</span>
+        <span class="lbl">Sponsor commits to follow-on</span>
+      </div>
+      <div class="metric-item">
+        <span class="num">0</span>
+        <span class="lbl">Fire drills</span>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>Blooming &times; Bond.ai</span>
+      <span>Confidential</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SLIDE 4: HACKATHON THEMES                  -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="slide slide-themes">
+    <div class="line"></div>
+    <span class="uppercase section-label">Hackathon Themes</span>
+    <h2 class="display section-headline">Three directions.<br><em>All with warm sponsors ready.</em></h2>
+
+    <div class="themes-grid">
+      <div class="theme-row">
+        <div class="theme-left">
+          <h3>AI Agents in Production</h3>
+          <p>Build agents that ship, not just demos.</p>
+        </div>
+        <div class="theme-right">
+          <span class="sponsors-label"><span class="sponsors-count">6</span> warm sponsors</span>
+          <span class="sponsors-list">n8n &middot; IBM &middot; Google DeepMind &middot; Bland AI &middot; Comet &middot; InsForge</span>
+        </div>
+      </div>
+      <div class="theme-row">
+        <div class="theme-left">
+          <h3>AI for Developer Productivity</h3>
+          <p>Build AI tools that make developers 10× more productive.</p>
+        </div>
+        <div class="theme-right">
+          <span class="sponsors-label"><span class="sponsors-count">8</span> warm sponsors</span>
+          <span class="sponsors-list">Google &middot; Miro &middot; CodeRabbit &middot; IBM &middot; NVIDIA &middot; UiPath &middot; Lightdash &middot; Comet</span>
+        </div>
+      </div>
+      <div class="theme-row">
+        <div class="theme-left">
+          <h3>AI for GTM &amp; Growth</h3>
+          <p>Build AI tools for sales, marketing, and growth teams.</p>
+        </div>
+        <div class="theme-right">
+          <span class="sponsors-label"><span class="sponsors-count">3</span> warm sponsors</span>
+          <span class="sponsors-list">TRAE &middot; Airia &middot; Modulate</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>Blooming &times; Bond.ai</span>
+      <span>Confidential</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SLIDE 5: SPONSOR PACKAGE                   -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="slide slide-package">
+    <div class="line"></div>
+    <span class="uppercase section-label">Sponsorship Package — $5,000</span>
+    <h2 class="display section-headline">80 qualified builders.<br><em>8 hours. One room.</em></h2>
+
+    <div class="package-grid">
+      <div class="package-col">
+        <h3>Visibility</h3>
+        <ul>
+          <li>Equal logo placement on all materials — website, emails, signage, LED wall</li>
+          <li>Event co-branding: "AI Hackathon powered by [Sponsors]"</li>
+          <li>LinkedIn, newsletter &amp; Twitter mentions</li>
+        </ul>
+      </div>
+      <div class="package-col">
+        <h3>Engagement</h3>
+        <ul>
+          <li>10-minute speaking slot — product demo, API walkthrough, or use case</li>
+          <li>Booth space with good placement (engineers ask real questions)</li>
+          <li>Optional: "Best use of [Company] API" prize category ($500–$1,500)</li>
+          <li>API credits or trial access distributed to all participants</li>
+        </ul>
+      </div>
+      <div class="package-col">
+        <h3>Data &amp; Access</h3>
+        <ul>
+          <li>Opt-in attendee list — names, emails, LinkedIn</li>
+          <li>Warm intros to winning teams (everyone gets intros simultaneously)</li>
+          <li>Post-event report — photos, metrics, attendee feedback, winner details</li>
+          <li>Recruiting pipeline — direct access to top talent in the room</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="package-note">Prizes are paid directly by sponsors outside the $5K fee. Each sponsor defines their own prize amount, format, and category — cash, API credits, or product licenses.</p>
+
+    <div class="slide-footer">
+      <span>Blooming &times; Bond.ai</span>
+      <span>Confidential</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SLIDE 6: SCOPE OF WORK                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="slide slide-scope">
+    <div class="line"></div>
+    <span class="uppercase section-label">Blooming — Scope of Work</span>
+    <h2 class="display section-headline">Full ownership.<br><em>Pre to post.</em></h2>
+
+    <div class="scope-grid">
+      <div class="scope-col">
+        <h3>Pre-Event</h3>
+        <ul>
+          <li>Venue sourcing, negotiation &amp; contract</li>
+          <li>Catering coordination (80 attendees)</li>
+          <li>AV/tech setup &amp; recording</li>
+          <li>Secondary sponsor outreach via AIUG network</li>
+          <li>Sponsor coordination — challenges, prizes, booth specs</li>
+          <li>Database outreach &amp; registration management</li>
+          <li>Devpost setup for submissions &amp; judging</li>
+          <li>Discord server — participant &amp; sponsor channels</li>
+          <li>Event landing page (if needed)</li>
+          <li>Judges &amp; mentors recruitment, briefing docs</li>
+        </ul>
+      </div>
+      <div class="scope-col">
+        <h3>Day-Of</h3>
+        <ul>
+          <li>7am–9am: Setup — tables, chairs, signage, AV check, catering</li>
+          <li>Registration desk — check-in, badges, swag</li>
+          <li>Emcee/host coordination</li>
+          <li>Speaker &amp; workshop timing management</li>
+          <li>Mentor circulation coordination</li>
+          <li>Real-time troubleshooting</li>
+          <li>Demo &amp; judging logistics (5pm–7pm)</li>
+          <li>Winner announcements &amp; prize handoff</li>
+          <li>Venue teardown &amp; equipment return (7pm–9pm)</li>
+        </ul>
+      </div>
+      <div class="scope-col">
+        <h3>Post-Event</h3>
+        <ul>
+          <li>Event report — attendance, photos, metrics, winners</li>
+          <li>Opt-in attendee list delivery to sponsors</li>
+          <li>Intro emails — connect sponsors with winning teams</li>
+          <li>Thank you emails to participants, judges, mentors</li>
+          <li>Post-event survey &amp; feedback collection</li>
+          <li>Social media recap — LinkedIn, photo albums, winner announcements</li>
+          <li>Devpost winner announcements</li>
+          <li>Discord open for 30 days post-event</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>Blooming &times; Bond.ai</span>
+      <span>Confidential</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SLIDE 7: INVESTMENT & REVENUE              -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="slide slide-invest">
+    <div class="line"></div>
+    <span class="uppercase section-label">Investment &amp; Revenue</span>
+    <h2 class="display section-headline">Two pricing models.<br><em>Both work.</em></h2>
+
+    <div class="blooming-fee">
+      <span class="fee-label">Blooming Fee</span>
+      <span class="fee-amount">$1,000</span>
+      <span class="fee-note">Covers pre-event, day-of production &amp; post-event deliverables. Blooming will prioritize securing a free venue to maximize profit.</span>
+    </div>
+
+    <div class="invest-scenarios">
+      <div class="invest-scenario">
+        <h3>Option A — $5K / sponsor &middot; 4 sponsors</h3>
+        <div class="invest-table">
+          <div class="invest-row">
+            <span class="item">Venue (free)</span>
+            <span class="price">$0</span>
+          </div>
+          <div class="invest-row">
+            <span class="item">Venue (paid)</span>
+            <span class="price">$3,500–$6,000</span>
+          </div>
+          <div class="invest-row">
+            <span class="item">Catering (80 ppl)</span>
+            <span class="price">$2,500–$3,000</span>
+          </div>
+          <div class="invest-row">
+            <span class="item">Contingency (10%)</span>
+            <span class="price">$250–$900</span>
+          </div>
+          <div class="invest-row">
+            <span class="item">Blooming Production Fee</span>
+            <span class="price">$1,000</span>
+          </div>
+          <div class="invest-row total">
+            <span class="item">Revenue (4 sponsors)</span>
+            <span class="price">$20,000</span>
+          </div>
+        </div>
+        <div class="profit-block">
+          <span class="profit-label">Profit</span>
+          <div class="profit-scenarios">
+            <div class="profit-row">
+              <span class="scenario-name">Best case (free venue)</span>
+              <span class="profit-num">$15,700</span>
+            </div>
+            <div class="profit-row">
+              <span class="scenario-name">Standard (paid venue)</span>
+              <span class="profit-num">$9,100</span>
+            </div>
+            <div class="profit-row">
+              <span class="scenario-name">Break-even</span>
+              <span class="profit-num">1–3 sponsors</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="invest-scenario">
+        <h3>Option B — $3K / sponsor &middot; 5–6 sponsors</h3>
+        <div class="invest-table">
+          <div class="invest-row">
+            <span class="item">Venue (free)</span>
+            <span class="price">$0</span>
+          </div>
+          <div class="invest-row">
+            <span class="item">Venue (paid)</span>
+            <span class="price">$3,500–$6,000</span>
+          </div>
+          <div class="invest-row">
+            <span class="item">Catering (80 ppl)</span>
+            <span class="price">$2,500–$3,000</span>
+          </div>
+          <div class="invest-row">
+            <span class="item">Contingency (10%)</span>
+            <span class="price">$250–$900</span>
+          </div>
+          <div class="invest-row">
+            <span class="item">Blooming Production Fee</span>
+            <span class="price">$1,000</span>
+          </div>
+          <div class="invest-row total">
+            <span class="item">Revenue (5–6 sponsors)</span>
+            <span class="price">$15,000–$18,000</span>
+          </div>
+        </div>
+        <div class="profit-block">
+          <span class="profit-label">Profit</span>
+          <div class="profit-scenarios">
+            <div class="profit-row">
+              <span class="scenario-name">Best case (free venue)</span>
+              <span class="profit-num">$10,700–$13,700</span>
+            </div>
+            <div class="profit-row">
+              <span class="scenario-name">Standard (paid venue)</span>
+              <span class="profit-num">$4,100–$7,100</span>
+            </div>
+            <div class="profit-row">
+              <span class="scenario-name">Break-even</span>
+              <span class="profit-num">2–4 sponsors</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="invest-note">Add-ons if needed: AV/Tech ($1,200–$2,000) · Staffing ($1,500–$2,000). Prizes paid directly by sponsors, outside the sponsorship fee.</p>
+
+    <div class="slide-footer">
+      <span>Blooming &times; Bond.ai</span>
+      <span>Confidential</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SLIDE 8: CLOSE                             -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="slide slide-close">
+    <svg width="56" height="56" viewBox="0 0 48 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="24" cy="14" rx="5" ry="12" fill="#1A1A1A" fill-opacity="0.7"/>
+      <ellipse cx="24" cy="46" rx="5" ry="12" fill="#1A1A1A" fill-opacity="0.7"/>
+      <ellipse cx="12" cy="30" rx="12" ry="5" fill="#5C6B5A" fill-opacity="0.6"/>
+      <ellipse cx="36" cy="30" rx="12" ry="5" fill="#5C6B5A" fill-opacity="0.6"/>
+      <circle cx="24" cy="30" r="4" fill="#1A1A1A"/>
+    </svg>
+
+    <h2 class="display close-headline">Let's run<br><em>one event</em> and see.</h2>
+
+    <p class="close-body">The best way to validate a partnership is to do the work. One hackathon, mid-May, SF. If it works, we scale. If it doesn't, we learned cheaply. Either way, we ship something real.</p>
+
+    <div class="close-steps">
+      <p>Align on hackathon theme — pick the one with the strongest sponsor momentum</p>
+      <p>Bond leads sponsor outreach, Blooming starts venue sourcing in parallel</p>
+      <p>Lock 2 sponsors to confirm the pilot — go from there</p>
+    </div>
+
+    <div class="close-contact">
+      <p class="close-email">alison@weareblooming.co</p>
+      <p class="close-url">weareblooming.co</p>
+    </div>
+
+    <div class="slide-footer">
+      <span>Blooming</span>
+      <span style="opacity: 0.3;">Growth that matters</span>
+    </div>
+  </div>
+
+</body>
+</html>
